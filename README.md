@@ -67,6 +67,7 @@ USB / LAN / GPIB (instrument dependent)
 | Test Result        | Pass / Fail  |
 
 Parameter LimitMaximum Undershoot≤ 200 mVMaximum Overshoot≤ 200 mVTest ResultPASS if both limits are satisfied  
+
 📊 Output Data  
 
 The script generates a CSV log file containing:  
