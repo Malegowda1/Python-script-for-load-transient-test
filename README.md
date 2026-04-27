@@ -58,8 +58,6 @@ The script communicates with instruments using SCPI commands via PyVISA.
 Communication Interfaces
 USB / LAN / GPIB (instrument dependent)
 
-✅ Acceptance Criteria
-
 ## ✅ Acceptance Criteria
 
 | Parameter           | Limit        |
