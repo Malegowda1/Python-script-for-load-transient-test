@@ -116,6 +116,7 @@ This project emphasizes:
 The implementation intentionally avoids advanced Python constructs to remain accessible to engineers with a C/embedded background.
 
 🚀 How to Run  
+
 1.Install dependencies:  
 A.pip install pyvisa pyvisa-py  
  2.Connect instruments and update VISA addresses in the script  
