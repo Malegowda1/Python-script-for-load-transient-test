@@ -1,16 +1,11 @@
-# ================================
 # Automated Load Transient Test
-# ================================
-
 import pyvisa            # Instrument communication
 import time              # Delay & timestamps
 import csv               # CSV logging
 from datetime import datetime
 
-# -------------------------------
-# Test Parameters (like #define in C)
-# -------------------------------
 
+# Test Parameters 
 INPUT_VOLTAGE = 5.0
 LOAD_LOW = 0.5            # Amps
 LOAD_HIGH = 2.0           # Amps
@@ -20,9 +15,7 @@ MAX_OVERSHOOT = 0.2
 
 CSV_FILE = "load_transient_results.csv"
 
-# -------------------------------
 # Connect to Instruments
-# -------------------------------
 
 rm = pyvisa.ResourceManager()
 
@@ -32,32 +25,24 @@ scope = rm.open_resource("USB0::SCOPE_ADDRESS::INSTR")
 
 print("Instruments connected")
 
-# -------------------------------
 # Configure Power Supply
-# -------------------------------
 
 psu.write("VOLT {}".format(INPUT_VOLTAGE))
 psu.write("OUTP ON")
 
-# -------------------------------
 # Configure Electronic Load
-# -------------------------------
 
 eload.write("MODE CC")              # Constant Current
 eload.write("CURR {}".format(LOAD_LOW))
 eload.write("INPUT ON")
 
-# -------------------------------
 # Configure Oscilloscope
-# -------------------------------
 
 scope.write("TIM:SCAL 1E-3")         # 1ms/div
 scope.write("TRIG:EDGE:SOUR CH1")
 scope.write("TRIG:EDGE:LEV 3.0")
 
-# -------------------------------
 # Open CSV File
-# -------------------------------
 
 with open(CSV_FILE, mode="w", newline="") as file:
     writer = csv.writer(file)
@@ -67,11 +52,8 @@ with open(CSV_FILE, mode="w", newline="") as file:
         "Overshoot (V)",
         "Pass/Fail"
     ])
-
-    # -------------------------------
+    
     # Run Load Transient Test
-    # -------------------------------
-
     print("Starting load transient test")
 
     # Apply high load
@@ -81,18 +63,14 @@ with open(CSV_FILE, mode="w", newline="") as file:
     # Return to low load
     eload.write("CURR {}".format(LOAD_LOW))
     time.sleep(0.05)
-
-    # -------------------------------
+    
     # Measure using Scope
-    # -------------------------------
-
+    
     undershoot = float(scope.query("MEAS:VMIN? CH1"))
     overshoot = float(scope.query("MEAS:VMAX? CH1"))
 
-    # -------------------------------
     # Pass / Fail Decision
-    # -------------------------------
-
+   
     if abs(undershoot) <= MAX_UNDERSHOOT and abs(overshoot) <= MAX_OVERSHOOT:
         result = "PASS"
     else:
@@ -110,10 +88,7 @@ with open(CSV_FILE, mode="w", newline="") as file:
 
     print("Test Result:", result)
 
-# -------------------------------
 # Turn OFF Instruments
-# -------------------------------
-
 eload.write("INPUT OFF")
 psu.write("OUTP OFF")
 
