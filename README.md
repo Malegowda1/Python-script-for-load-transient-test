@@ -66,18 +66,7 @@ USB / LAN / GPIB (instrument dependent)
 | Voltage Overshoot  | ≤ 200 mV     |
 | Test Result        | Pass / Fail  |
 
-Parameter LimitMaximum Undershoot≤ 200 mVMaximum Overshoot≤ 200 mVTest ResultPASS if both limits are satisfied
-
-📁 Repository Structure  
-Automated-Load-Transient-Testing/  
-│  
-├── load_transient_test.py     # Main automation script  
-├── results/  
-│   └── load_transient_results.csv  
-├── README.md                  # Project documentation  
-└── requirements.txt           # Python dependencies
-
-
+Parameter LimitMaximum Undershoot≤ 200 mVMaximum Overshoot≤ 200 mVTest ResultPASS if both limits are satisfied  
 📊 Output Data  
 
 The script generates a CSV log file containing:  
