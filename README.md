@@ -84,56 +84,56 @@ Automated-Load-Transient-Testing/
 
 The script generates a CSV log file containing:  
 
-1.Timestamp of test execution  
-2.Measured voltage undershoot  
-3.Measured voltage overshoot  
-4.Pass / Fail status
+1. Timestamp of test execution  
+2. Measured voltage undershoot  
+3. Measured voltage overshoot  
+4. Pass / Fail status
 
 This format ensures:  
 
-1.Traceability  
-2.Production readiness  
-3.Ease of debugging and reporting
+1. Traceability  
+2. Production readiness  
+3. Ease of debugging and reporting
 
 📈 Statistics & Reporting
 
 The framework is designed to be extensible, allowing future additions such as:  
 
-1.Multiple test iterations  
-2.Min / Max / Average calculations  
-3.HTML or PDF test reports  
-4.Board‑to‑board comparison during production testing
+1. Multiple test iterations  
+2. Min / Max / Average calculations  
+3. HTML or PDF test reports  
+4. Board‑to‑board comparison during production testing
 
 🧠 Design Philosophy
 
 This project emphasizes:  
 
-1.Clear and readable automation code  
-2.Deterministic and repeatable test execution  
-3.Separation of test parameters and test logic  
-4.Hardware‑focused validation rather than software complexity
+1. Clear and readable automation code  
+2. Deterministic and repeatable test execution  
+3. Separation of test parameters and test logic  
+4. Hardware‑focused validation rather than software complexity
 
 The implementation intentionally avoids advanced Python constructs to remain accessible to engineers with a C/embedded background.
 
 🚀 How to Run  
 
-1.Install dependencies:  
-A.pip install pyvisa pyvisa-py  
- 2.Connect instruments and update VISA addresses in the script  
- 3.Power on the PDN hardware  
- 4.Run:  
- A.python load_transient_test.py
+1. Install dependencies:  
+A. pip install pyvisa pyvisa-py  
+ 2. Connect instruments and update VISA addresses in the script  
+ 3. Power on the PDN hardware  
+ 4. Run:  
+ A. python load_transient_test.py
 
 📌 Notes & Assumptions  
 
-1.Instrument SCPI command sets may vary by manufacturer  
-2.Voltage measurements are taken on the selected oscilloscope channel  
-3.Proper probing techniques are assumed (short ground leads, bandwidth limit enabled)
+1. Instrument SCPI command sets may vary by manufacturer  
+2. Voltage measurements are taken on the selected oscilloscope channel  
+3. Proper probing techniques are assumed (short ground leads, bandwidth limit enabled)
 
 🔮 Future Improvements  
 
-1.Multi‑rail automated testing  
-2.Temperature‑based testing  
-3.PGood timing verification  
-4.Database‑based result storage  
-5.CI‑style regression testing for hardware
+1. Multi‑rail automated testing  
+2. Temperature‑based testing  
+3. PGood timing verification  
+4. Database‑based result storage  
+5. CI‑style regression testing for hardware
